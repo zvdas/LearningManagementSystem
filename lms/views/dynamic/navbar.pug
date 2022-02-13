@@ -1,9 +1,10 @@
 link(rel="stylesheet", href="https://fonts.googleapis.com/icon?family=Material+Icons")
 div(class="d-flex flex-column", style="position: fixed; top: 0; left: 0; height:100%; width: 20%; z-index: 1; background-color: black; overflow-x: hidden;")
   ul(class="nav, flex-column")
-    div.navbar-brand
+    div(class="navbar-brand text-white")
       h2 Welcome,
-      h2 AAAAA
+      h2 users
+      //- #{users.userName.split(" ")[0]}
     li.mb-1
       a(class="nav-link text-white mb-1", href="/course/dashboard") Dashboard
         span.material-icons(style="float: left;") home
