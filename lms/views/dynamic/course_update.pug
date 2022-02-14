@@ -10,34 +10,31 @@ html(lang="en")
     body
         include navbar.pug
         div.container
-            form(action="")
+            form(method="POST", action="/course/update")
                 div.card(style="left: 15%; margin: 5%; padding-top: 5%; padding-bottom: 5%;")
                     div(class="row justify-content-center")
                         div.col-11
                             h2 Update Course
-                            div.mb-3 Select Course
-                                select.form-control(name="courseName")
-                                    option(value="1") Node.js
-                                    option(value="2") Angular.js
-                            div.mb-3
+                            div.mb-3 
                                 div(class="row g-2")
-                                    div.col-8 Course Name
-                                        input.form-control(name="courseName", type="text")
+                                    div.col-8 Course Name 
+                                        input.form-control(name="_id", type="hidden", value=courses._id)
+                                        input.form-control(name="courseName", type="text", value=courses.courseName)
                                     div.col Category
-                                        select.form-control(name="courseCategory")
+                                        select.form-control(name="courseCategory", value=courses.courseCategory)
                                             option(value="1") Web Development
                                             option(value="2") Data Science
                             div.mb-3 One Liner
-                                input.form-control(name="courseOneLiner", type="text")
+                                input.form-control(name="courseOneLiner", type="text", value=courses.courseOneLiner)
                             div.mb-3
-                                div(class="row g-3")
+                                div(class="row g-3") 
                                     div.col Duration in Hours
-                                        input.form-control(name="courseDuration", type="text")
+                                        input.form-control(name="courseDuration", type="text", value=courses.courseDuration)
                                     div.col Language
-                                        input.form-control(name="courseLanguage", type="text")
+                                        input.form-control(name="courseLanguage", type="text", value=courses.courseLanguage)
                                     div.col Upload Cover Photo
-                                        input.form-control(name="courseCoverPhoto", type="file")
+                                        input.form-control(name="courseCoverPhoto", type="file", value=courses.courseCoverPhoto) 
                             div.mb-3 Description
-                                textarea.form-control(name="courseDescription")
+                                textarea.form-control(name="courseDescription", value=courses.courseDescription) #{courses.courseDescription}
                                 script(type="text/javascript") CKEDITOR.replace( 'courseDescription' );
                             button(class="btn btn-primary", type="submit", style="float: right;") Update Course

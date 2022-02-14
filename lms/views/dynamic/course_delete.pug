@@ -22,13 +22,13 @@ html(lang="en")
                                     th(scope="col") Category
                                     th(scope="col") Duration
                                     th(scope="col") 
-                            tbody
-                                tr
-                                    th(scope="row") 1
+                            tbod
+                                each course,index in courses
+                                    td=index+1
+                                    td=course.courseCoverPhoto
+                                    td=course.courseName
+                                    td=course.courseCategory
+                                    td=course.courseDuration
                                     td
-                                        img(src="https://seeklogo.com/images/N/nodejs-logo-065257DE24-seeklogo.com.png", style="height: 75px; width: 150px;")
-                                    td Node.js
-                                    td Web Development
-                                    td 1 Hours
-                                    td
-                                        button(class="btn btn-danger", type="button") Delete
+                                        a(class="btn btn-danger", type="button", href="/course/delete?id="+course._id) Delete
+                                        tr

@@ -7,7 +7,7 @@ exports.getAddUserForm = (req,res,next) => {
 }
 
 exports.getEditUserView = (req,res,next) => {
-    repository.getAll((users) => {
+    repository.getOne((users) => {
         res.render('user_edit.pug',{ title: 'Users', users: users});
     });
 }
@@ -15,7 +15,7 @@ exports.getEditUserView = (req,res,next) => {
 exports.addUser = (req,res,next) => {
     const user = new userModel(req.body.userName,req.body.userType,req.body.userEmail,req.body.userPassword);
     repository.add(user);
-    repository.getAll((users) => {
+    repository.getOne((users) => {
         res.render('user_edit.pug',{ title: 'Users', users: users});
     });
 }
@@ -23,7 +23,7 @@ exports.addUser = (req,res,next) => {
 exports.updateUser = (req,res,next) => {
     const user = new userModel(req.body.userName,req.body.userType,req.body.userEmail,req.body.userPassword,req.body._id);
     repository.update(user,() => {
-        repository.getAll((users) => {
+        repository.getOne((users) => {
             res.render('user_edit.pug',{ title: 'Users', users: users});
         });
     });

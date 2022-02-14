@@ -22,15 +22,13 @@ html(lang="en")
                                     th(scope="col") Category
                                     th(scope="col") Duration
                                     th(scope="col") 
-                            tbody 
-                                tr 
-                                    each course in courses
-                                        th(scope="row") #{course}
-                                        //- td
-                                        //-     img(src="https://seeklogo.com/images/N/nodejs-logo-065257DE24-seeklogo.com.png", style="height: 75px; width: 150px;")
-                                        //- td 
-                                        //- #{courses.courseName}
-                                        //- td Web Development
-                                        //- td 1 Hours
-                                        //- td
-                                            button(class="btn btn-primary", type="button") View
+                            tbody
+                                each course,index in courses
+                                    td=index+1
+                                    td=course.courseCoverPhoto
+                                    td=course.courseName
+                                    td=course.courseCategory
+                                    td=course.courseDuration
+                                    td
+                                        a(class="btn btn-primary", type="button", href="/course/update?id="+course._id) View/Update
+                                        tr

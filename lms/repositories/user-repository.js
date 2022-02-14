@@ -6,7 +6,7 @@ exports.add = (user,callback) => {
     collection.insertOne({ userName: user.userName, userType: user.userType, userEmail: user.userEmail, userPassword: user.userPassword })
 }
 
-exports.getAll = (callback) => {
+exports.getOne = (callback) => {
     const collection = database.getCollection();
     collection.findOne()
         .then((users) => {

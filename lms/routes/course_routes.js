@@ -1,7 +1,5 @@
 const express = require('express');
 
-const path = require('path');
-
 const courseController = require('../controllers/course_controllers');
 
 const router = express.Router();
@@ -14,6 +12,10 @@ router.get('/dashboard', courseController.getListCourseView);
 
 router.get('/update', courseController.getUpdateCourseView);
 
-router.get('/delete', courseController.getDeleteCourseView);
+router.post('/update', courseController.updateCourse);
+
+router.get('/deletev', courseController.getDeleteCourseView);
+
+router.get('/delete', courseController.deleteCourse);
 
 module.exports = router;
