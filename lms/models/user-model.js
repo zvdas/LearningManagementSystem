@@ -1,6 +1,6 @@
 const users = [];
 
-module.exports = class userModels{
+module.exports = class userModel{
     
     constructor(userName,userType,userEmail,userPassword,id){
         this.userName = userName;

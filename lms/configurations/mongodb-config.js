@@ -9,6 +9,7 @@ const client = new mongoClient(uri);
 var collection;
 
 module.exports = {
+    
     connect: function(callback) {
         mongoClient.connect(uri)
             .then(function(client){
@@ -20,10 +21,13 @@ module.exports = {
                 console.log(err);
             })
     },
-    getCollection: function(){
+
+    getUserCollection: function(){
         return collection;
     },
+
     getCourseCollection: function(){
         return courseCollection;
     }
+    
 }

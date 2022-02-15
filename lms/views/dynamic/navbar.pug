@@ -3,7 +3,7 @@ div(class="d-flex flex-column", style="position: fixed; top: 0; left: 0; height:
   ul(class="nav, flex-column")
     div(class="navbar-brand text-white")
       h2 Welcome,
-      h2 users
+      h2 users 
       //- #{users.userName.split(" ")[0]}
     li.mb-1
       a(class="nav-link text-white mb-1", href="/course/dashboard") Dashboard
@@ -23,4 +23,4 @@ div(class="d-flex flex-column", style="position: fixed; top: 0; left: 0; height:
     li.nav-item
       a(class="nav-link text-white", href="/user/edit") Edit Profile
         span.material-icons(style="float: left;") person
-    button(class="btn btn-primary", type="submit", style="position: fixed; bottom: 10%; width: 10%;") Logout
+    a(class="btn btn-primary", type="submit", href="/user/new", style="position: fixed; bottom: 10%; width: 10%;") Logout

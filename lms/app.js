@@ -20,9 +20,11 @@ mongodbConfig.connect(() => {
 
 app.use(bodyParser.urlencoded({extended: false}));
 
-app.use('/user',userRoutes);
+app.use(bodyParser.json());
 
-app.use('/course',courseRoutes);
+// app.use('/user',userRoutes);
+
+// app.use('/course',courseRoutes);
 
 app.listen(3000, ()=>{
     console.log("Server is listening on port 3000");

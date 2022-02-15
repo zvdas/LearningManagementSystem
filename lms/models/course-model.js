@@ -1,6 +1,6 @@
 const courses = [];
 
-module.exports = class CourseModels {
+module.exports = class CourseModel {
 
     constructor(courseName,courseCategory,courseOneLiner,courseDuration,courseLanguage,courseDescription,courseLessons,courseCoverPhoto,id){
         this.courseName = courseName;
