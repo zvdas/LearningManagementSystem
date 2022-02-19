@@ -14,8 +14,6 @@ router.get('/update', courseController.getUpdateCourseView);
 
 router.post('/update', courseController.updateCourse);
 
-router.get('/deletev', courseController.getDeleteCourseView);
-
 router.get('/delete', courseController.deleteCourse);
 
 module.exports = router;

@@ -18,23 +18,22 @@ html(lang="en")
                             div.mb3
                                 div(class="row g-2")
                                     div.col-8 Course Name
-                                        input.form-control(name="courseName", type="text")
+                                        input.form-control(name="courseName", type="text", required)
                                     div.col Category
                                         select.form-control(name="courseCategory")
-                                            option(value="1") Web Development
-                                            option(value="2") Data Science
+                                            each courseCategory in courseCategories
+                                                option=courseCategory
                             div.mb-3 One Liner
-                                input.form-control(name="courseOneLiner", type="text")
+                                input.form-control(name="courseOneLiner", type="text", required)
                             div.mb-3
                                 div(class="row g-3")
                                     div.col Duration in Hours
-                                        input.form-control(name="courseDuration", type="text")
+                                        input.form-control(name="courseDuration", type="text", required)
                                     div.col Language
-                                        input.form-control(name="courseLanguage", type="text")
+                                        input.form-control(name="courseLanguage", type="text", required)
                                     div#coverPhoto.col Upload Cover Photo
-                                        input.form-control(name="courseCoverPhoto", type="file")
+                                        input.form-control(name="courseCoverPhoto", type="file", required)
                             div.mb-3 Description
-                                textarea.form-control(name="courseDescription")
+                                textarea.form-control(name="courseDescription", required)
                                 script(type="text/javascript") CKEDITOR.replace( 'courseDescription' );
                             button(class="btn btn-primary", type="submit", style="float: right;") Create New Course
-                            //- , enctype="multipart/form-data") 

@@ -16,7 +16,6 @@ exports.getAll = (callback) => {
 };
 
 exports.getById = (id,callback) => {
-    console.log(id);
     const userCollection = database.getUserCollection();
     userCollection.findOne({ _id: ObjectId(id) })
         .then((users) => {

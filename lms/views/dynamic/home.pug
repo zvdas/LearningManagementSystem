@@ -17,19 +17,19 @@ html(lang="en")
                                 div.mb-3
                                     div(class="row g-2")
                                         div.col-8 Full name
-                                            input.form-control(name="userName", type="text")
+                                            input.form-control(name="userName", type="text", required)
                                         div.col Type
-                                            select.form-control(name="userType", type="text")
+                                            select.form-control(name="userType", type="text", required)
                                                 option(value="Student") Student
                                                 option(value="Instructor") Instructor  
                                 div.mb-3 Email ID
-                                    input.form-control(name="userEmail", type="email", placeholder="you@example.com")
+                                    input.form-control(name="userEmail", type="email", placeholder="you@example.com", required)
                                 div.mb-3
                                     div(class="row g-2")
                                         div.col Password
-                                            input.form-control(name="userPassword", type="password")
+                                            input.form-control(name="userPassword", type="password", required)
                                         div.col Confirm Password
-                                            input.form-control(type="password")
+                                            input.form-control(type="password", required)
                                 div(class="mb-3  d-grid gap-2")
                                     button(class="btn btn-primary registerButton", type="submit") Register Now!
                                 strong #{title}
@@ -38,9 +38,9 @@ html(lang="en")
                             div.col
                                 h2 Have an account? Log in now!
                                 div.mb-3 Email ID
-                                    input#userEmail.form-control(name="loginEmail", type="email")
+                                    input#userEmail.form-control(name="loginEmail", type="email", required)
                                 div.mb-3 Password
-                                    input#userPassword.form-control(name="loginPassword", type="password")
+                                    input#userPassword.form-control(name="loginPassword", type="password", required)
                                 div(class="mb-3 d-grid gap-2")
                                     button(class="btn btn-primary loginButton", type="submit") Login
                                 strong #{name}

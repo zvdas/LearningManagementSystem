@@ -9,22 +9,22 @@ html(lang="en")
     body 
         include navbar.pug
         div.container
-            form(method="POST", action="/edit")
+            form(method="POST", action="/user/edit")
                 div(class="row justify-content-around", style="margin-top: 15%; margin-left: 15%")
                     div(class="card col-5",style="padding-top: 5%; padding-bottom: 5%;")
                         h2 Change Profile
                         div.mb-3 Full name 
                             input.form-control(type="hidden" name="_id" value=users._id)
-                            input.form-control(name="userName", type="text", placeholder=users.userName) 
+                            input.form-control(name="userName", type="text", placeholder=users.userName, required) 
                         div.mb-3 Email ID
-                            input.form-control(name="userEmail", type="email", placeholder=users.userEmail)
+                            input.form-control(name="userEmail", type="email", placeholder=users.userEmail, required)
                         div(class="mb-3 d-grid gap-2")
                             button(class="btn btn-primary", type="submit") Change Profile
                     div(class="card col-5" style="padding-top: 5%; padding-bottom: 5%;")
                         h2 Change Password
                         div.mb-3 New Password
-                            input.form-control(name="userPassword", type="password")
+                            input.form-control(name="userPassword", type="password", required)
                         div.mb-3 Confirm New Password
-                            input.form-control(type="password")
+                            input.form-control(type="password", required)
                         div(class="mb-3 d-grid gap-2")
                             button(class="btn btn-primary", type="submit") Change Password

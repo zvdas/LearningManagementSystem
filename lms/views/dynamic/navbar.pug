@@ -3,24 +3,23 @@ div(class="d-flex flex-column", style="position: fixed; top: 0; left: 0; height:
   ul(class="nav, flex-column")
     div(class="navbar-brand text-white")
       h2 Welcome,
-      h2 users 
-      //- #{users.userName.split(" ")[0]}
-    li.mb-1
+      h2 #{users.userName.split(" ")[0]}
+    div.mb-1
       a(class="nav-link text-white mb-1", href="/course/dashboard") Dashboard
         span.material-icons(style="float: left;") home
-    li.nav-item
+    div.mb-1
       a(class="nav-link text-white", href="/course/new") New Courses
         span.material-icons(style="float: left;") download
-    //- li.nav-item
-      //- a(class="nav-link text-white", href="/course/update") Update Courses
-        //- span.material-icons(style="float: left;") update
-    li.nav-item
-      a(class="nav-link text-white", href="/course/deletev") Delete Courses
+    div.mb-1
+      a(class="nav-link text-white", href="/course/delete") Delete Courses
         span.material-icons(style="float: left;") delete
-    li.nav-item
+    div.nav-item
       a(class="nav-link text-white disabled", href="#") Manage Lessons
         span.material-icons(style="float: left;") description
-    li.nav-item
+    div.mb-1
       a(class="nav-link text-white", href="/user/edit") Edit Profile
         span.material-icons(style="float: left;") person
+    div.mb-1
+      a(class="nav-link text-white", href="/user/delete") Delete Profile
+        span.material-icons(style="float: left;") person_remove
     a(class="btn btn-primary", type="submit", href="/user/new", style="position: fixed; bottom: 10%; width: 10%;") Logout

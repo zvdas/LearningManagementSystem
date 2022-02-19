@@ -2,8 +2,6 @@ const userRepository = require('../repositories/user-repository');
 
 const userModel = require('../models/user-model');
 
-const path = require('path');
-
 exports.add = (req,res) => {
     const user = new userModel(req.body.userName,req.body.userType,req.body.userEmail,req.body.userPassword);
     userRepository.add(user);
