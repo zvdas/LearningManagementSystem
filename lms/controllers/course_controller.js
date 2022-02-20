@@ -52,3 +52,11 @@ exports.deleteCourse = (req,res,next) => {
         })
     }
 };
+
+exports.getImage = (req,res,next) => {
+    res.render('course_image.pug', {  });
+};
+
+exports.uploadImage = (req,res,next) => {
+    res.render('course_image.pug', {  });
+};

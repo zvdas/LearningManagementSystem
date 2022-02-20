@@ -1,5 +1,3 @@
-const cli = require('nodemon/lib/cli');
-
 const mongoClient = require('mongodb').MongoClient;
 
 const uri = 'mongodb://127.0.0.1:27017/userDB';
