@@ -2,13 +2,11 @@ const express = require('express');
 
 const userController = require('../controllers/user_controller');
 
-const authenticator = require('../controllers/authenticator');
-
 const router = express.Router();
 
 router.get('/new', userController.getAddUserForm);
 
-router.post('/new', authenticator.authenticateLogin);
+router.post('/new', userController.addUser);
 
 router.get('/edit', userController.getEditUserView);
 
