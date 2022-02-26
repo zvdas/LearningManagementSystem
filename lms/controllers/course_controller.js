@@ -15,7 +15,10 @@ exports.getAddCourseForm = (req,res,next) => {
 }
 
 exports.addCourse = (req,res,next) => {
-    const course = new courseModel(req.body.courseName, req.body.courseCategory, req.body.courseOneLiner, req.body.courseDuration, req.body.courseLanguage, req.body.courseDescription, req.body.courseLessons, req.body.courseCoverPhoto)
+    const base64 = fs.readFileSync(req.file.path,"base64");
+    const buffer = Buffer.from(base64, "base64");
+    const imageString = buffer.toString('base64');
+    const course = new courseModel(req.body.courseName, req.body.courseCategory, req.body.courseOneLiner, req.body.courseDuration, req.body.courseLanguage, req.body.courseDescription, req.body.courseLessons, imageString)
     courseRepository.add(course);
     courseRepository.getAll((courses) => {
         res.render('dashboard.pug',{ title: 'Courses', courses: courses, users: CurrentUserDetails[0], courseCategories: courseCategories });
@@ -36,7 +39,10 @@ exports.getUpdateCourseView = (req,res,next) => {
 }
 
 exports.updateCourse = (req,res,next) => {
-    const course = new courseModel(req.body.courseName, req.body.courseCategory, req.body.courseOneLiner, req.body.courseDuration, req.body.courseLanguage, req.body.courseDescription, req.body.courseLessons, req.body.courseCoverPhoto, req.body._id)
+    const base64 = fs.readFileSync(req.file.path,"base64");
+    const buffer = Buffer.from(base64, "base64");
+    const imageString = buffer.toString('base64');
+    const course = new courseModel(req.body.courseName, req.body.courseCategory, req.body.courseOneLiner, req.body.courseDuration, req.body.courseLanguage, req.body.courseDescription, req.body.courseLessons, imageString, req.body._id)
     courseRepository.update(course,() => {
         courseRepository.getAll((courses) => {
             res.render('dashboard.pug',{ title: 'Courses', courses: courses, users: CurrentUserDetails[0] });

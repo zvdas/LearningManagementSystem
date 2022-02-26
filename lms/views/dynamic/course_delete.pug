@@ -25,7 +25,8 @@ html(lang="en")
                             tbod
                                 each course,index in courses
                                     td=index+1
-                                    td=course.courseCoverPhoto
+                                    td
+                                        img(src="data:image/jpg;base64,"+course.courseCoverPhoto, style="height: 100px; width: 200px")
                                     td=course.courseName
                                     td=course.courseCategory
                                     td=course.courseDuration

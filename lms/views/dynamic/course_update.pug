@@ -10,7 +10,7 @@ html(lang="en")
     body
         include navbar.pug
         div.container
-            form(method="POST", action="/course/update")
+            form(method="POST", action="/course/update", enctype="multipart/form-data")
                 div.card(style="left: 15%; margin: 5%; padding-top: 5%; padding-bottom: 5%;")
                     div(class="row justify-content-center")
                         div.col-11
@@ -33,7 +33,9 @@ html(lang="en")
                                     div.col Language
                                         input.form-control(name="courseLanguage", type="text", value=courses.courseLanguage, required)
                                     div.col Upload Cover Photo
-                                        input.form-control(name="courseCoverPhoto", type="file", value=courses.courseCoverPhoto) 
+                                        input.form-control(name="courseCoverPhoto", type="file")
+                                        label(for="courseCoverPhoto")
+                                            img(src="data:image/jpg;base64,"+courses.courseCoverPhoto, style="height: 50px; width: 100px") 
                             div.mb-3 Description
                                 textarea.form-control(name="courseDescription", value=courses.courseDescription, required) #{courses.courseDescription}
                                 script(type="text/javascript") CKEDITOR.replace( 'courseDescription' );
