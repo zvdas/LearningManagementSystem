@@ -1,6 +1,6 @@
 const mongoClient = require('mongodb').MongoClient;
 
-const uri = 'mongodb://127.0.0.1:27017/userDB';
+const uri = 'mongodb://127.0.0.1:27017/LMSDB';
 
 const client = new mongoClient(uri);
 
@@ -9,9 +9,8 @@ module.exports = {
     connect: function(callback) {
         mongoClient.connect(uri)
             .then(function(client){
-                userCollection = client.db('userDB').collection("Users");
-                courseCollection = client.db('userDB').collection("Courses");
-                imageCollection = client.db('userDB').collection("Images");
+                userCollection = client.db('LMSDB').collection("Users");
+                courseCollection = client.db('LMSDB').collection("Courses");
                 return callback("OK");
             })
             .catch(function(err){
@@ -25,10 +24,6 @@ module.exports = {
 
     getCourseCollection: function(){
         return courseCollection;
-    },
-
-    getImageCollection: function(){
-        return imageCollection;
     }
-    
+
 }
