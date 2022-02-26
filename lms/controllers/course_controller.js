@@ -1,6 +1,12 @@
+const fs = require('fs');
+
 const courseModel = require('../models/course-model');
 
+const ImageModel = require('../models/image-model');
+
 const courseRepository = require('../repositories/course-repository');
+
+const imageRepository = require('../repositories/image-repository');
 
 global.courseCategories = ["Web Development", "Data Science", "Business Analysis", "Project Management", "Big Data Engineering"];
 
@@ -54,9 +60,19 @@ exports.deleteCourse = (req,res,next) => {
 };
 
 exports.getImage = (req,res,next) => {
-    res.render('course_image.pug', {  });
+    imageRepository.getAll((images) => {
+        res.render('course_image.pug', { images: images });
+    });
 };
 
 exports.uploadImage = (req,res,next) => {
-    res.render('course_image.pug', {  });
+    const base64 = fs.readFileSync(req.file.path,"base64");
+    const buffer = Buffer.from(base64, "base64");
+    const imageString = buffer.toString('base64');
+    console.log(req.file.mimetype)
+    const image = new ImageModel (imageString,req.file.mimetype);
+    imageRepository.add(image);
+    imageRepository.getAll((images) => {
+        res.render('course_image.pug', { images: images })
+    });
 };

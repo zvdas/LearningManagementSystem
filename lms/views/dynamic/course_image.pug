@@ -11,3 +11,5 @@ html(lang="en")
         form(action="/course/image", method="post", enctype="multipart/form-data") 
             input(type="file", name="imageupload")
             button(class="btn btn-primary", type="submit", name="uploadImage") Upload
+        each image in images
+            img(src="data:image/jpg;base64,"+image.imageString)
