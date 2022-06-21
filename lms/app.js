@@ -32,10 +32,6 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 app.use(bodyParser.json());
 
-app.use("/", (req, res) => {
-    res.redirect('/user/new');
-})
-
 app.use('/user',userRoutes);
 
 app.use('/course',courseRoutes);
@@ -43,6 +39,10 @@ app.use('/course',courseRoutes);
 app.use('/api/user', userRoutesAPI);
 
 app.use('/api/course', courseRoutesAPI);
+
+app.use('/', (req, res) => {
+    res.redirect('/user/new');
+})
 
 app.listen(process.env.PORT || 3000, ()=>{
     console.log("Server is listening on port 3000");
