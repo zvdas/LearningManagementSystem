@@ -2,9 +2,9 @@ const express = require('express');
 
 const cors = require("cors");
 
-const userRoutes = require('./routes/user_routes');
+const userRoutes = require('./routes/user.routes');
 
-const courseRoutes = require('./routes/course_routes');
+const courseRoutes = require('./routes/course.routes');
 
 const userRoutesAPI = require('./routes/user_routes_api');
 
@@ -12,7 +12,7 @@ const courseRoutesAPI = require('./routes/course_routes_api');
 
 const bodyParser = require('body-parser');
 
-const mongodbConfig = require('./configurations/mongodb-config');
+const mongodbConfig = require('./configurations/mongodb');
 
 const app = express();
 

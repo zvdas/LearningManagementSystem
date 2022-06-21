@@ -1,8 +1,8 @@
-const userModel = require('../models/user-model');
+const userModel = require('../models/user.model');
 
-const userRepository = require('../repositories/user-repository');
+const userRepository = require('../repositories/user.repository');
 
-const courseRepository = require('../repositories/course-repository');
+const courseRepository = require('../repositories/course.repository');
 
 // const CurrentUserDetails=[];
 

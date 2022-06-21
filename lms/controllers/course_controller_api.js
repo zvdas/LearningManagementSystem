@@ -1,6 +1,6 @@
-const courseRepository = require('../repositories/course-repository');
+const courseRepository = require('../repositories/course.repository');
 
-const courseModel =  require('../models/course-model');
+const courseModel =  require('../models/course.model');
 
 exports.add = (req,res) => {
     // const course = new courseModel(req.body.courseName, req.body.courseCategory, req.body.courseOneLiner, req.body.courseDuration, req.body.courseLanguage, req.body.courseDescription, req.body.courseLessons, req.body.courseCoverPhoto)

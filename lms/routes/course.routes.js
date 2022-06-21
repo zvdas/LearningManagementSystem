@@ -1,8 +1,8 @@
 const express = require('express');
 
-const courseController = require('../controllers/course_controller');
+const courseController = require('../controllers/course.controller');
 
-const multerConfig = require('../configurations/multer-config');
+const multerConfig = require('../configurations/multer');
 
 const router = express.Router();
 

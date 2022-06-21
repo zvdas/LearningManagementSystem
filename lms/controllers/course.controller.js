@@ -1,6 +1,6 @@
-const courseModel = require('../models/course-model');
+const courseModel = require('../models/course.model');
 
-const courseRepository = require('../repositories/course-repository');
+const courseRepository = require('../repositories/course.repository');
 
 global.courseCategories = ["Web Development", "Data Science", "Business Analysis", "Project Management", "Big Data Engineering"];
 

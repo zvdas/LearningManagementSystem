@@ -1,5 +1,5 @@
 const { ObjectId } = require('mongodb');
-const database = require('../configurations/mongodb-config');
+const database = require('../configurations/mongodb');
 
 exports.add = (course,callback) => {
     const courseCollection = database.getCourseCollection();

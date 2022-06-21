@@ -1,6 +1,6 @@
-const userModel = require('../models/user-model');
+const userModel = require('../models/user.model');
 
-const userRepository = require('../repositories/user-repository');
+const userRepository = require('../repositories/user.repository');
 
 exports.add = (req,res) => {
     const user = new userModel(req.body.userName,req.body.userType,req.body.userEmail,req.body.userPassword);
