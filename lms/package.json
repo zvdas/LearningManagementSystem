@@ -13,6 +13,7 @@
   "dependencies": {
     "body-parser": "1.19.1",
     "bootstrap": "5.1.3",
+    "cors": "^2.8.5",
     "dotenv": "^16.0.1",
     "express": "4.17.2",
     "mocha": "9.2.0",

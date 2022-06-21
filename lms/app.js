@@ -1,5 +1,7 @@
 const express = require('express');
 
+const cors = require("cors");
+
 const userRoutes = require('./routes/user_routes');
 
 const courseRoutes = require('./routes/course_routes');
@@ -18,6 +20,8 @@ app.set('view engine','pug');
 
 app.set('views','views/dynamic');
 
+app.use(cors({ origin: 'https://lmsnodejsapp.herokuapp.com' }));
+
 mongodbConfig.connect(() => {
     console.log("Connected to MongoDB in Express");
 })
@@ -27,7 +31,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
 app.use('/', (req, res) => {
-    res.render('home.pug')
+    res.redirect('/user/new');
 })
 
 app.use('/user',userRoutes);
