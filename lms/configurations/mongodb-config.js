@@ -4,8 +4,6 @@ const dotenv = require("dotenv");
 
 dotenv.config({ path: '.env' });
 
-// const uri = 'mongodb://127.0.0.1:27017/LMSDB';
-
 const client = new mongoClient(process.env.MONGODB_URI);
 
 module.exports = {

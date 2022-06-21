@@ -26,6 +26,10 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 app.use(bodyParser.json());
 
+app.use('/', (req, res) => {
+    res.render('home.pug')
+})
+
 app.use('/user',userRoutes);
 
 app.use('/course',courseRoutes);
