@@ -4,7 +4,7 @@ const userRepository = require('../repositories/user-repository');
 
 const courseRepository = require('../repositories/course-repository');
 
-const CurrentUserDetails=[];
+// const CurrentUserDetails=[];
 
 exports.getAddUserForm = (req,res) => {
     userRepository.getAll((users) => {
@@ -30,10 +30,14 @@ exports.addUser = (req,res) => {
             if(Object.values(users)[users.findIndex(std => std.userEmail === req.body.loginEmail)].userPassword === req.body.loginPassword) {
                 const id = Object.values(users)[users.findIndex(std => std.userEmail === req.body.loginEmail)]._id.toString();
                 userRepository.getById(id, (result) => {
+                    global.CurrentUsername = result.userName;
+                    global.CurrentUserId = result._id;
+                    /*
                     CurrentUserDetails.push(result);
                     global.CurrentUserDetails = CurrentUserDetails;
+                    */
                     courseRepository.getAll((courses) => {
-                        res.render('dashboard.pug',{ users: result, courses: courses });
+                        res.render('dashboard.pug',{ username: CurrentUsername/*result.userName*/, courses: courses });
                     });
                 });
             }else{
@@ -44,9 +48,10 @@ exports.addUser = (req,res) => {
 };
 
 exports.getEditUserView = (req,res) => {
-    const id = CurrentUserDetails[0]._id.toString();
+    // const id = CurrentUserDetails[0]._id.toString();
+    const id = CurrentUserId.toString();
     userRepository.getById(id, (result) => {
-        res.render('user_edit.pug',{ users: result });
+        res.render('user_edit.pug',{ users: result, username: CurrentUsername });
     });
 };
 
@@ -63,13 +68,13 @@ exports.editUser = (req,res) => {
 exports.deleteUser = (req,res) => {
     if(req.query.id===undefined) {
         userRepository.getAll((userList) => {
-            res.render('user_delete.pug',{ userList:userList, users: CurrentUserDetails[0] });
+            res.render('user_delete.pug',{ userList:userList, username: CurrentUsername/*CurrentUserDetails[0]*/ });
         });
     }else{
         const id = req.query.id;
         userRepository.delete((id), () => {
             userRepository.getAll((userList) => {
-                res.render('user_delete.pug',{ userList:userList,  users: CurrentUserDetails[0] });
+                res.render('user_delete.pug',{ userList:userList,  users: CurrentUsername/*CurrentUserDetails[0]*/ });
             });
         });    
     }

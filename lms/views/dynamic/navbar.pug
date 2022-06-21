@@ -3,7 +3,8 @@ div(class="d-flex flex-column", style="position: fixed; top: 0; left: 0; height:
   ul(class="nav, flex-column")
     div(class="navbar-brand text-white")
       h2 Welcome,
-      h2 #{users.userName.split(" ")[0]}
+      //- h2 #{users.userName.split(" ")[0]}
+      h2 #{username.split(" ")[0]}
     div.mb-1
       a(class="nav-link text-white mb-1", href="/course/dashboard") Dashboard
         span.material-icons(style="float: left;") home

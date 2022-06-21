@@ -20,6 +20,8 @@ app.set('view engine','pug');
 
 app.set('views','views/dynamic');
 
+app.use(cors({ origin: 'http://localhost:3000' }));
+
 app.use(cors({ origin: 'https://lmsnodejsapp.herokuapp.com' }));
 
 mongodbConfig.connect(() => {
@@ -30,9 +32,11 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 app.use(bodyParser.json());
 
-app.use('/', (req, res) => {
-    res.redirect('/user/new');
+/*
+app.use("/", (req, res) => {
+    res.sendFile(__dirname + '/index.html');
 })
+*/
 
 app.use('/user',userRoutes);
 

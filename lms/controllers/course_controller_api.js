@@ -3,9 +3,10 @@ const courseRepository = require('../repositories/course-repository');
 const courseModel =  require('../models/course-model');
 
 exports.add = (req,res) => {
-    const course = new courseModel(req.body.courseName, req.body.courseCategory, req.body.courseOneLiner, req.body.courseDuration, req.body.courseLanguage, req.body.courseDescription, req.body.courseLessons, req.body.courseCoverPhoto)
-    courseRepository.add(course);
-    res.status(200).send();
+    // const course = new courseModel(req.body.courseName, req.body.courseCategory, req.body.courseOneLiner, req.body.courseDuration, req.body.courseLanguage, req.body.courseDescription, req.body.courseLessons, req.body.courseCoverPhoto)
+    // courseRepository.add(course);
+    // res.status(200).send();
+    return res.json({message : `the req is ${req}`})
 }
 
 exports.getAll = (req,res) => {
