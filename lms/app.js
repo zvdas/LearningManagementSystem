@@ -36,9 +36,11 @@ app.use('/user',userRoutes);
 
 app.use('/course',courseRoutes);
 
+/*
 app.use('/api/user', userRoutesAPI);
 
 app.use('/api/course', courseRoutesAPI);
+*/
 
 app.use('/', (req, res) => {
     res.redirect('/user/new');
