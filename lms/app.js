@@ -32,11 +32,9 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 app.use(bodyParser.json());
 
-/*
 app.use("/", (req, res) => {
     res.sendFile(__dirname + '/index.html');
 })
-*/
 
 app.use('/user',userRoutes);
 
