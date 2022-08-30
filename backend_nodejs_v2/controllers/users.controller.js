@@ -45,7 +45,7 @@ exports.updateUserById = async(req, res, next) => {
     res.status(200)
         .json({ 
             success: true, 
-            message: `User with ID "${req.params.id}" updated successfully`
+            message: `User with ID '${req.params.id}' updated successfully`
         });
 }
 
@@ -59,6 +59,6 @@ exports.deleteUserById = async(req, res, next) => {
         .status(200)
         .json({ 
             success: true,
-            message: `User with ID "${req.params.id}" deleted successfully`
+            message: `User with ID '${req.params.id}' deleted successfully`
         })
 }

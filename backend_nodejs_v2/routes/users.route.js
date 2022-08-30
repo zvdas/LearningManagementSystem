@@ -1,8 +1,12 @@
 // import necessary modules
 const express = require('express');
-
-const { getUsers, getUserById, createUser, updateUserById, deleteUserById } = require('../controllers/users.controller');
-const User = require('../models/User.model');
+const { 
+    getUsers, 
+    getUserById, 
+    createUser, 
+    updateUserById, 
+    deleteUserById 
+} = require('../controllers/users.controller');
 
 // configure router
 const router = express.Router();

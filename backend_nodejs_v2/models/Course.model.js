@@ -1,22 +1,24 @@
 // import necessary modules
 const mongoose = require('mongoose');
+const fs = require('fs');
 
 // create course schema
 const CourseSchema = mongoose.Schema({
     courseName: {
         type: String,
+        unique: true,
         required: [true, 'Please enter a course name']
     },
     courseCategory: {
         type: String,
-        // required: [true, 'Please select a course category'],
+        required: [true, 'Please select a course category'],
         enum: [
             'NodeJS',
             'Python',
-            'Java',
+            'Front Web Development',
+            'Backend Web Development',
             'Angular',
             'React',
-            'Web Development',
             'Data Science',
             'Big Data Engineering'
         ]
@@ -38,6 +40,7 @@ const CourseSchema = mongoose.Schema({
     },
     courseCoverPhoto: {
         Type: String
+        // default: Buffer.from(fs.readFileSync('assets/images/no image available.jpg', 'base64'), 'base64').toString('base64')
     },
     createdAt: {
         type: Date,
@@ -45,17 +48,5 @@ const CourseSchema = mongoose.Schema({
     }
 })
 
-/*
-    courseCoverPhoto: {
-        data: Buffer.toString('base64'),
-        contentType: String
-    },
-*/
-
-// upload file as string before save
-CourseSchema.pre('save', function(){
-    console.log(req.body);
-});
-
-// export user schema
+// export course schema
 module.exports = mongoose.model('Course', CourseSchema);
