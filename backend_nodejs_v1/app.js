@@ -18,7 +18,9 @@ const app = express();
 
 app.set('view engine','pug');
 
-app.set('views','views/dynamic');
+// app.set('views','views/dynamic');
+
+app.set('views','build');
 
 // app.use(cors({ origin: 'http://localhost:3000' }));
 
