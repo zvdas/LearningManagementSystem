@@ -24,7 +24,9 @@ app.set('views','build');
 
 // app.use(cors({ origin: 'http://localhost:3000' }));
 
-app.use(cors({ origin: 'https://lmsnodejsapp.herokuapp.com' }));
+// app.use(cors({ origin: 'https://lmsnodejsapp.herokuapp.com' }));
+
+app.use(cors());
 
 mongodbConfig.connect(() => {
     console.log("Connected to MongoDB in Express");
